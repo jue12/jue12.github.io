@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jue12.github.io</id>
+    <title>随笔茶屋</title>
+    <updated>2024-05-22T03:02:38.157Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jue12.github.io"/>
+    <link rel="self" href="https://jue12.github.io/atom.xml"/>
+    <subtitle>余心之所善兮，随九死而其尤未悔</subtitle>
+    <logo>https://jue12.github.io/images/avatar.png</logo>
+    <icon>https://jue12.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, 随笔茶屋</rights>
+    <entry>
+        <title type="html"><![CDATA[PLSPM官方教程[中文版]]]></title>
+        <id>https://jue12.github.io/post/plspm-guan-fang-jiao-cheng-zhong-wen-ban/</id>
+        <link href="https://jue12.github.io/post/plspm-guan-fang-jiao-cheng-zhong-wen-ban/">
+        </link>
+        <updated>2024-05-20T03:08:21.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[QIIME2.0-专注于微生物群落的分析]]></title>
+        <id>https://jue12.github.io/post/qiime20-zhuan-zhu-yu-wei-sheng-wu-qun-luo-de-fen-xi/</id>
+        <link href="https://jue12.github.io/post/qiime20-zhuan-zhu-yu-wei-sheng-wu-qun-luo-de-fen-xi/">
+        </link>
+        <updated>2024-05-20T01:25:55.000Z</updated>
+    </entry>
+</feed>

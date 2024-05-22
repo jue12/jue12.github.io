@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>PLSPM官方教程[中文版] | 随笔茶屋</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://jue12.github.io/favicon.ico?v=1716346864809">
+<link rel="stylesheet" href="https://jue12.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="参考原件:PLSPM模型.pdf
+
+Chapter 1 介绍( Introduction)
+
+1.1 PLSPM路径模型(PLS Path Modeling )
+偏最小二乘路径建模是一个名称，它没有提供很多关于它是什么或它可以做什么的线索。..." />
+    <meta name="keywords" content="SEM" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://jue12.github.io">
+        <img src="https://jue12.github.io/images/avatar.png?v=1716346864809" class="site-logo">
+        <h1 class="site-title">随笔茶屋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://mp.weixin.qq.com/s/OHqqsdYHVOD2oe8qi6AQQw" class="site-nav">
+            树洞投稿
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      余心之所善兮，随九死而其尤未悔
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://jue12.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">PLSPM官方教程[中文版]</h2>
+            <div class="post-date">2024-05-20</div>
+            
+              <div class="feature-container" style="background-image: url('https://i0.hippopx.com/photos/644/582/461/river-canyon-rocks-rock-preview.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>参考原件:<a href="https://www.yuque.com/attachments/yuque/0/2024/pdf/40661871/1715006179287-b0a44f74-0c64-41cd-b6f4-86a82bbcb248.pdf?_lake_card=%7B%22src%22%3A%22https%3A%2F%2Fwww.yuque.com%2Fattachments%2Fyuque%2F0%2F2024%2Fpdf%2F40661871%2F1715006179287-b0a44f74-0c64-41cd-b6f4-86a82bbcb248.pdf%22%2C%22name%22%3A%22PLSPM%E6%A8%A1%E5%9E%8B.pdf%22%2C%22size%22%3A2148670%2C%22ext%22%3A%22pdf%22%2C%22source%22%3A%22%22%2C%22status%22%3A%22done%22%2C%22download%22%3Atrue%2C%22taskId%22%3A%22ubd962bea-2721-4710-a55b-a414c16f8be%22%2C%22taskType%22%3A%22upload%22%2C%22type%22%3A%22application%2Fpdf%22%2C%22__spacing%22%3A%22both%22%2C%22mode%22%3A%22title%22%2C%22id%22%3A%22ue77fe808%22%2C%22margin%22%3A%7B%22top%22%3Atrue%2C%22bottom%22%3Atrue%7D%2C%22card%22%3A%22file%22%7D">PLSPM模型.pdf</a><br>
+<a name="AeJHQ"></a></p>
+<h1 id="chapter-1-介绍-introduction">Chapter 1 介绍( Introduction)</h1>
+<p><a name="O3rDu"></a></p>
+<h3 id="11-plspm路径模型pls-path-modeling">1.1 PLSPM路径模型(PLS Path Modeling )</h3>
+<p>偏最小二乘路径建模是一个名称，它没有提供很多关于它是什么或它可以做什么的线索。简单地说，偏最小二乘路径建模是一种统计数据分析方法，存在于<strong>回归模型</strong>、<strong>结构方程模型</strong>和<strong>多表分析方法</strong>的交叉点。如果您要查看有关 PLS 路径建模的大量文献，您很可能会发现以下描述：</p>
+<ul>
+<li>
+<p><strong>PLSPM是结构方程建模的偏最小二乘法;</strong></p>
+</li>
+<li>
+<p><strong>是一种用于研究观测变量和潜在变量之间复杂多变量关系的统计方法;</strong></p>
+</li>
+<li>
+<p><strong>是一种数据分析方法，用于研究一组观察到的变量块，其中每个块都可以由一个潜在变量总结，并且潜在变量之间存在线性关系;</strong><br>
+:::danger<br>
+在大多数情况下，PLS 路径建模通常被称为<strong>结构方程建模 （SEM） 的 PLS 方法</strong>。然而，在规模虽小但不断发展的 PLS 社区中，术语路径建模比结构方程建模更受欢迎，尽管这两个术语经常互换使用。我更喜欢的描述是从更广泛的概念角度看待 PLS-PM 以分析变量块之间的多种关系，就个人而言，我尽量避免使用SEM一词：</p>
+</li>
+<li>
+<p>第一个原因与结构方程建模背后的内涵有关，其主导方法基于协方差结构分析（有时也称为 LISREL）。由于LISREL的压倒性市场份额，PLS-PM在SEM社区中占据了很小的一席之地。出于同样的原因，CSA 纯粹主义者认为 PLS-PM 是一种扭曲 SEM 理想的笨拙方法（郑重声明，我不反对 CSA 社区和 Lisrelites）</p>
+</li>
+<li>
+<p>第二个原因与SEM光谱之外的广泛应用有关，这些应用可以从灵活的PLS-PM角度进行靶向。虽然我不经常使用 SEM，但我有时可能会使用 SEM-PLS 这个术语，因为它可以帮助人们获得一些参考，让他们更好地了解该方法。我更喜欢使用术语 PLS 路径建模来赋予该方法自己的领域。是的，您可以将 PLS 应用于 SEM 应用程序，但还有许多其他类型的问题可以通过 PLS-PM 处理，这些问题不适合 SEM 框架。<br>
+:::<br>
+** 类似网络分析(The Network Analogy )**<br />PLSPM是一种处理变量间关系的统计方法，特别适用于变量间存在因果关系的场景。首先，假设你有一个变量网络。通常，假设网络中的连接代表某些因果过程。但你可以把它想象成一个流程图，其中流程沿一个方向流动（不允许循环）。定义网络后，目标之一是量化变量之间的联系或关系。有趣的部分是微妙的，即每个连接的变量都是通过组合一组其他变量获得的。虽然这是有趣的部分，但它也是棘手的部分，但要记住的主要思想是连接变量的网络。<strong>PLS 路径建模通过将网络视为多个相互关联的线性回归系统来量化关系</strong>。<br>
+<a name="VEdp8"></a></p>
+</li>
+</ul>
+<h3 id="12-为什么用r包why-r">1.2 为什么用R包?(Why R? )</h3>
+<p>略<br>
+<a name="twHbk"></a></p>
+<h3 id="13-关于偏最小二乘pls简单介绍about-partial-least-squares">1.3  关于偏最小二乘PLS简单介绍(About Partial Least Squares)</h3>
+<p>也许最流行的答案是将 PLS 等同于一种回归分析技术。这太狭隘了。诚然，PLS与回归分析有关，但远不止于此。从最广泛的角度来看，PLS是一个数据分析方法的大家庭。然而，这可能是定义 PLS 的主要障碍。这些方法旨在处理广泛的数据分析任务，例如结构系统的探索、可视化、解释、预测、分类和研究。在最纯粹的数据分析意义上，PLS可以看作是一组用于分析各种变量块（或数据表）之间多种关系的方法。如果我们将变量块视为数据表，则各种 PLS 方法之间的差异取决于表的数量和变量之间的关系类型。<br />对 PLS 方法的看法不能免于误解。最初的一个障碍与术语和行话有关：潜在结构、投影、基于组件、软建模、分数、载荷、路径系数、路径图，仅举几个术语。首字母缩略词也被广泛使用：PLS、PLSR、PLSPM、NIPALS 等等。然而，一旦你超越了适应的初始阶段，PLS方法就开辟了一种处理许多统计问题的新方法。将 PLS 视为一组可用于不同目的的工具。应用得当，PLS可以成为一套非常方便和有用的工具。但是，您必须记住，没有单一的最佳方法来分析数据，也没有一种方法适用于所有问题。PLS也不例外。从这个意义上说，PLS数据分析既是一门艺术，也是一门科学，不仅需要数学原理，还需要一些随着时间的推移而发展起来的直觉和技能。<br>
+<a name="PEhjA"></a></p>
+<h4 id="131-偏最小二乘pls的发展历史short-tale-of-pls">1.3.1  偏最小二乘PLS的发展历史(Short tale of PLS)</h4>
+<p><a name="NzkB0"></a></p>
+<h4 id="132-回归主义与路径建模主义regressionists-and-path-modelists">1.3.2  回归主义与路径建模主义(Regressionists and Path-modelists)</h4>
+<p>PLS世界中有两个主要人群。PLS用户可以大致分为两个群体，让我称他们为：回归主义者和路径建模主义者。回归主义者由 PLS 回归方法的用户组成。路径建模者与路径建模方法（SEM 和多表分析）相关。当然，这是一个简单化的观点，但反映了我在大会、研讨会、演讲和 PLS 文献中看到的内容。您要么被标识为回归主义者，要么被标识为路径建模主义者。回归主义者通常使用生物化学和生命科学数据，这些数据涉及化学计量学、感官计量学和生物识别等学科的分析问题。因此，路径建模者通常使用来自心理测量学、市场营销、信息技术和经济学等社会学境的数据。<br />我从回归主义者的角度接触到了PLS技术，但在我的博士研究中，我参与了路径建模师。我想这使我成为两种传统中罕见的混合体之一。尽管这两个团体都试图拥有PLS品牌名称，但我更喜欢成为多面手，着眼于森林而不是树木。不可否认的是，你参与的项目、你从事的研究领域以及你分析的数据类型，将你塑造成一个回归主义者或路径建模者。但是您不必为一个团体参加派对并中断与另一个团体的联系。<br>
+<a name="Rku3t"></a></p>
+<h3 id="14-本书结构structure-of-the-book">1.4 本书结构(Structure of the book)</h3>
+<p>第一部分（第 2 - 5 章）设置了 PLS 路径建模的基础知识，并组织为一系列渐进式主题，每个主题都旨在建立在前面介绍的概念之上。第一部分遵循简明的学习路径，这对于牢牢掌握 PLS 路径建模至关重要。<br />第二部分（第 6 - 9 章）涵盖了 PLS-PM 学习量表下一级的主题。第二部分中的章节是独立的，您可以彼此独立阅读，也可以按照与编号方式不同的顺序阅读它们。</p>
+<blockquote>
+<p><strong>Part I 第一部分</strong><br>
+第 2 章提供了您需要了解的有关 PLS 路径建模的基本知识。还提供了有关如何使用 plspm 执行 PLS-PM 分析的基本实践介绍<br>
+第3章介绍了PLS-PM背后的理论框架，并介绍了模型规范和算法。<br>
+第 4 章描述了如何解释和诊断 PLS-PM 分析的结果，特别是 plspm 提供的输出。<br>
+第 5 章向您展示了如何从头到尾运行 PLS-PM 分析，并使用适用于教育服务的客户满意度的调整模型。<br>
+<strong>Part II 第二部分(该部分可独立阅读)</strong><br>
+第 6 章介绍了在 PLS 路径建模中比较组的主题，并描述了比较两个模型的两种常用方法：1） bootstrap t 检验和 2） 排列检验。<br>
+第7章描述了用三种类型的方法测试调节效应：1）产品指标，2）两阶段方法，3）分类变量方法。<br>
+第8章描述了三种方法的高阶结构：1）重复指标法，2）两步法，3）混合法。<br>
+第 9 章专门讨论使用 REBUS 方法检测类的问题。<br>
+附录 A 包含 PLS-PM 的历史概述</p>
+</blockquote>
+<p><a name="VZ37J"></a></p>
+<h1 id="chapter-2-pls-pm入门getting-started-with-pls-pm">Chapter 2 PLS-PM入门(Getting Started with PLS-PM)</h1>
+<p>在本章中，我们将介绍对于牢牢掌握PLS路径建模至关重要的基本概念。与其深入探讨 PLS-PM 算法的技术方面，我更愿意用一个简单而有趣的示例来实践如何应用 PLS-PM。目的是设置一个基础阶段，以便您为本书其余部分讨论的内容做好准备。PLS-PM引擎的理论细节和细节将等到下一章。我试图让一切尽可能简单易懂。但与此同时，我试图涵盖尽可能多的方面，特别是从结构方程建模的角度来看。但是，允许我冒昧地进行一些描述，这些描述不一定满足其他教科书中讨论的正式材料。<br>
+<a name="pRTtF"></a></p>
+<h3 id="21-案列研究成功指数case-study-index-of-success">2.1 案列研究：成功指数(Case Study: Index of Success)</h3>
+<p>对于这个例子，我们的目标是使用西班牙职业足球队的数据获得成功指数。该数据来自职业西班牙足球联赛西甲联赛，它由20支球队测量的14个变量组成。我从不同的网站（如 LeagueDay.com、BDFutbol、ceroacero.es、statto.com 和LFP）收集并手动整理了2008-2009赛季的数据。生成的数据集附带名为 spainfoot 的包 plspm。若要访问数据，必须先调用包 plspm，然后在 R 控制台中使用函数 data（）：<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714956087335-a919b064-14b7-4301-a831-cd0804e47d31.png#averageHue=%23f6f6f5&amp;clientId=u15566fbf-35a8-4&amp;from=paste&amp;height=101&amp;id=ud238f8c0&amp;originHeight=126&amp;originWidth=795&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=13880&amp;status=done&amp;style=none&amp;taskId=u7a226957-4d92-40b7-a644-298059ed95b&amp;title=&amp;width=636" alt="image.png" loading="lazy"><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714956111269-e28c93c1-48be-422a-9cff-528694415e8f.png#averageHue=%23f2f1ef&amp;clientId=u15566fbf-35a8-4&amp;from=paste&amp;height=275&amp;id=uea50f98f&amp;originHeight=344&amp;originWidth=789&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=66126&amp;status=done&amp;style=none&amp;taskId=u9101b51b-8d7d-41d3-addc-9ee5ce5de73&amp;title=&amp;width=631.2" alt="image.png" loading="lazy"><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714956136334-9dfbbec2-566f-40a3-b265-dc10946f77a6.png#averageHue=%23f9f6f4&amp;clientId=u15566fbf-35a8-4&amp;from=paste&amp;height=362&amp;id=u877dd2cc&amp;originHeight=452&amp;originWidth=790&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=80125&amp;status=done&amp;style=none&amp;taskId=udb2555c0-354f-411a-aec9-24e116288ef&amp;title=&amp;width=632" alt="image.png" loading="lazy"><br>
+<a name="yq8J8"></a></p>
+<h4 id="211-关于潜变量与显变量of-latent-and-manifest-variables">2.1.1 关于潜变量与显变量(Of latent and manifest variables)</h4>
+<p><strong>Formative and Reflective Indicators(形成型与反映型)</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714956646757-3177945b-b869-4405-900f-4a90d860349e.png#averageHue=%23bea27d&amp;clientId=u17a63ee6-8885-4&amp;from=paste&amp;height=274&amp;id=uc5f498e4&amp;originHeight=342&amp;originWidth=756&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=36865&amp;status=done&amp;style=none&amp;taskId=u0e5bad37-7def-4266-b526-29d1dc6cc0d&amp;title=&amp;width=604.8" alt="image.png" loading="lazy"><br>
+<a name="zyFRu"></a></p>
+<h4 id="212-定义潜变量成功success攻击attack防御defense">2.1.2 定义潜变量：成功(Success)，攻击(Attack)，防御(Defense)</h4>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714956791586-5edb101a-c153-438d-b5a1-5e88318fbb15.png#averageHue=%23fbf9f7&amp;clientId=u17a63ee6-8885-4&amp;from=paste&amp;height=559&amp;id=ud417d2e0&amp;originHeight=699&amp;originWidth=861&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=107213&amp;status=done&amp;style=none&amp;taskId=ud15d8f86-3479-4fde-b4f8-4b651c14bc1&amp;title=&amp;width=688.8" alt="image.png" loading="lazy"><br>
+<a name="NcqrB"></a></p>
+<h4 id="213-路径模型path-model">2.1.3 路径模型(Path Model)</h4>
+<p><strong>通常情况下，我们可能需要我们正在研究的领域专家的助手来决定要使用的测量类型。</strong><br /><strong>三个原则来绘制我的 PLS 路径图：</strong></p>
+<ul>
+<li>显变量使用矩形框</li>
+<li>潜变量使用椭圆框</li>
+<li>变量之间的关系用直箭头表示</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714957085397-73116edf-7168-4acb-9708-46c8b7896a02.png#averageHue=%23fdfdfc&amp;clientId=u17a63ee6-8885-4&amp;from=paste&amp;height=354&amp;id=ud9b6d398&amp;originHeight=443&amp;originWidth=694&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=35797&amp;status=done&amp;style=none&amp;taskId=ub9f3a27f-10ce-42be-9ebb-24ce2c243fd&amp;title=&amp;width=555.2" alt="image.png" loading="lazy"><br>
+<a name="wVaTN"></a></p>
+<h4 id="214-内部模型和外部模型inner-and-outer-models">2.1.4 内部模型和外部模型(Inner and Outer models)</h4>
+<p>完整路径模型由两个子模型组成：结构模型（也称为内部模型）和测量模型（也称为外部模型）。内部模型是模型中与潜在变量之间关系有关的部分。<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714957714209-b726d2e8-b688-419e-a919-95a860d4b30a.png#averageHue=%23fefdfd&amp;clientId=u17a63ee6-8885-4&amp;from=paste&amp;height=258&amp;id=ud21e7424&amp;originHeight=322&amp;originWidth=696&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=19581&amp;status=done&amp;style=none&amp;taskId=u5fad0c09-366f-44db-8a9b-0e6265beb6c&amp;title=&amp;width=556.8" alt="image.png" loading="lazy"><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714957735903-652fb4fc-0eb0-4f6a-a55c-2f067a52d995.png#averageHue=%23fdfdfc&amp;clientId=u17a63ee6-8885-4&amp;from=paste&amp;height=336&amp;id=u93409042&amp;originHeight=420&amp;originWidth=754&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=37143&amp;status=done&amp;style=none&amp;taskId=u31587c42-c82a-489a-a6da-50394955d00&amp;title=&amp;width=603.2" alt="image.png" loading="lazy"><br>
+<a name="OoSo8"></a></p>
+<h3 id="22-使用r包plspm实现pls路径模型">2.2 使用R包plspm()实现PLS路径模型</h3>
+<p><a name="JX9Ax"></a></p>
+<h4 id="221-构建plspm的内部模型和外部模型preparing-the-ingredients-for-plspm">2.2.1 构建plspm()的内部模型和外部模型(Preparing the ingredients for plspm())</h4>
+<p><strong>Inner model matrix</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714957714209-b726d2e8-b688-419e-a919-95a860d4b30a.png#averageHue=%23fefdfd&amp;clientId=u17a63ee6-8885-4&amp;from=paste&amp;height=258&amp;id=GnqmI&amp;originHeight=322&amp;originWidth=696&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=19581&amp;status=done&amp;style=none&amp;taskId=u5fad0c09-366f-44db-8a9b-0e6265beb6c&amp;title=&amp;width=556.8" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714960359095-59f10806-27f7-440c-8c1b-915232eae1e4.png#averageHue=%23f5f4f3&amp;clientId=u84b387e2-2df5-4&amp;from=paste&amp;height=191&amp;id=u04812895&amp;originHeight=239&amp;originWidth=793&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=38467&amp;status=done&amp;style=none&amp;taskId=uade4277d-67fd-4576-b473-f45087c3ec6&amp;title=&amp;width=634.4" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714960446532-75b3a7b6-5134-456a-b0c6-117df12c61c2.png#averageHue=%23f5f5f4&amp;clientId=u84b387e2-2df5-4&amp;from=paste&amp;height=130&amp;id=u7e3387f2&amp;originHeight=162&amp;originWidth=791&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16485&amp;status=done&amp;style=none&amp;taskId=u9c71e8da-c344-45fe-8011-534e988b0e9&amp;title=&amp;width=632.8" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714960513117-dea0644a-f7fa-4423-a702-426e5190854c.png#averageHue=%23f6f5f5&amp;clientId=u84b387e2-2df5-4&amp;from=paste&amp;height=40&amp;id=u4da37512&amp;originHeight=50&amp;originWidth=791&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=7355&amp;status=done&amp;style=none&amp;taskId=u7e622abf-4c6c-4694-8e3c-550df106fb4&amp;title=&amp;width=632.8" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714960560968-4911247c-5666-408c-ba21-97f5b1f156d3.png#averageHue=%23f5f4f3&amp;clientId=u84b387e2-2df5-4&amp;from=paste&amp;height=56&amp;id=uc55368fa&amp;originHeight=70&amp;originWidth=797&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=16320&amp;status=done&amp;style=none&amp;taskId=u4f8202ad-bfca-4bfb-9888-a566aa5d74b&amp;title=&amp;width=637.6" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714960616150-69bfcd9a-dc21-41f1-87f7-e5979952f800.png#averageHue=%23f6f5f3&amp;clientId=u84b387e2-2df5-4&amp;from=paste&amp;height=138&amp;id=u3595fa0e&amp;originHeight=173&amp;originWidth=799&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=37160&amp;status=done&amp;style=none&amp;taskId=u54cab4b2-12de-44ba-9dcb-ebb64611655&amp;title=&amp;width=639.2" alt="image.png" loading="lazy"><br>
+<a name="UggFG"></a></p>
+<h4 id="222-running-plspm">2.2.2 Running plspm()</h4>
+<p><a name="kmcEw"></a></p>
+<h4 id="223-plotting-results">2.2.3 Plotting results</h4>
+<p><a name="jiLwq"></a></p>
+<h1 id="chapter-3-构建pls-pm框架-setting-the-pls-pm-framework">Chapter 3 构建PLS-PM框架( Setting the PLS-PM Framework )</h1>
+<p>这一章，我戴上了乏味的统计学家的帽子。众所周知，每一种统计方法都有其基本的理论背景和概念框架。在这里，人们列出了模型、数据和建议解决方案的假设和条件。这当然不是书中最精彩的部分，但如果我跳过它的内容，我所有的导师和同事可能都会指责我异端邪说。我倒不是很在意，但我相信会有一些读者因为没有找到本章所包含的信息而感到非常失望。<strong>首先，我们将用一个简短的观点部分来讨论 PLS 路径建模的基本思想框架。接下来，我们将介绍 PLS 路径模型的正式规格。然后，我们将讨论算法的工作原理。</strong><br>
+<a name="vICk8"></a></p>
+<h3 id="31-pls-pm的思维框架pls-pm-frame-of-mind">3.1 PLS-PM的思维框架(PLS-PM Frame of Mind)</h3>
+<p>在介绍 PLS-PM 方法之前，我想告诉大家一些在 PLS 相关文献中并不常见，但我认为对理解 PLS-PM 框架非常重要的话。虽然这里的大部分内容都是我的个人观点，但我认为这足以反映出大多数 PLS 人员对 PLS 原则，尤其是 PLS-PM 原则的看法。<br /><strong>首先，您必须明白，PLS 方法是源自算法的分析工具，旨在以非常实用的方式求解模型。PLS 方法不是通过概率推理或数值优化得出的。相反，PLS 摆脱了对数据的严格假设，同时保持了以预测为导向的重点。诚然，它并不依赖于经典的推理传统--广泛基于变量和误差分布的假设--但这并不意味着 PLS 缺乏坚实的统计基础。为了评估 PLS 模型与数据的 &quot;吻合 &quot;程度，我们使用预测误差作为预测准确性的衡量标准，并使用重采样方法进行推理</strong>。<br /><strong>从结构方程建模（SEM）的角度来看，PLS-PM 提供了一种不同的方法，它不对数据强加任何在现实生活中很难满足的分布假设，特别是对于非实验数据</strong>。当我们使用基于协方差的 SEM 方法时，我们隐含地假设数据是由某个 &quot;真实 &quot;的理论模型生成的。在这种情况下，协方差结构分析（CSA）的目标就是恢复产生观测到的协方差的 &quot;真实 &quot;模型。简言之，在使用 CSA 时，我们关注的是建立一个模型并再现观测到的协方差。这种方法依赖于经典的统计推断理论，并大量使用了有关数据行为和个性的分布假设。因此，分析人员不得不缓慢前进；建模过程需要深思熟虑和严格论证，最终往往会因数据必须遵循模型这一奇怪（有时甚至矛盾）的原则而影响整个分析。**相比之下，PLS-PM 并不依赖于数据生成过程和因果模型之间的相互解释。相反，PLS-PM 将数据 &quot;仅仅 &quot;视为数据集。**我的意思是，虽然原则上可以有数据生成过程，但它在 PLS-PM 中并不直接发挥作用。提出的模型不被视为地面实况，而只是一种具有有用预测性的近似估计。换句话说，PLS-PM 不假定数据是由什么模型生成的。只有数据，除了数据什么都没有。从这个意义上说，PLS-PM 遵循了降维技术的精神，我们可以利用这种技术对手头的数据进行有用的洞察。PLS-PM 的最终目标是提供一个实用的总结，说明因变量集合是如何通过预测因子集合进行系统解释的。<br />除了将 PLS 路径建模描述为 SEM 协方差结构分析的替代方法外，PLS-PM 还可以被视为分析多组变量之间关系系统的一种技术，或者简单地说，分析多个数据表的一种技术。我们可以使用许多统计方法来研究在同一研究对象身上观察到的多个变量组的数据： <strong>霍特广义典型相关分析</strong>、<strong>卡罗尔广义典型相关分析</strong>、<strong>多因素分析</strong>等。所有这些方法背后的理念都是要找出或发现变量块之间的共同结构。<br />从多表分析的角度来看，PLS-PM 是在低结构环境中分析高维数据的绝佳工具。特别是，PLS-PM 提供了一个很好的特点，即可以用作预测方法。鉴于许多多表技术只侧重于描述和探索任务，PLS-PM 可用于更多的解释和证实目的。<br />总之，我们可以将 PLS-PM 视为一枚硬币，它有以下两个面：</p>
+<ul>
+<li><strong>将 PLS 路径模型作为基于组件的结构方程模型估算替代方法。</strong></li>
+<li><strong>PLS 路径建模是分析多组变量之间线性关系系统的一种方法。</strong><br>
+<a name="bc2ql"></a></li>
+</ul>
+<h3 id="32-pls-pm路径建模规范pls-path-modeling-specs">3.2 PLS-PM路径建模规范(PLS Path Modeling Specs)</h3>
+<p>每一种统计方法背后都有一个概念框架，我们用它来正式表示我们想要建模的 &quot;研究对象&quot;、我们想要建模的方式、我们想要得到什么以及我们如何才能得到它。PLS-PM 也不例外，我们需要谈谈这种方法的幕后。我认为区分**形式模型(formal model)<strong>和</strong>操作模型(operative model)**是有用的。我所说的正式模型是指对理论模型、所需假设和或多或少的抽象概念的陈述。我所说的操作是指计算方面，即建议的解决方案。**简而言之：形式模型是 &quot;我们想要什么&quot;，而操作模型是 &quot;如何得到我们想要的&quot;。  **<br>
+<a name="JUlUB"></a></p>
+<h3 id="33-形式模型我们想要什么formal-model-what-we-want">3.3 形式模型：我们想要什么？(Formal Model: What we want)</h3>
+<p>让我们从 PLS 路径模型的形式化及其规格开始。这些是统计模型抽象宇宙中的东西。你可以把规范看作是我们对世界透过 PLS-PM 玻璃所看到的样子的理想化呈现。不过，请记住，这只是对世界 &quot;可能 &quot;如何运作的表述，而不是世界 &quot;应该 &quot;如何运作的表述。<strong>每个 PLS 路径模型都由两个子模型组成：结构模型或内部模型，以及测量模型或外部模型。结构模型是模型中与潜变量之间关系有关的部分。反过来，测量模型是模型中与潜变量及其显变量块之间的关系有关的部分。</strong><br /><strong>符号(Notation)</strong><br /><strong>假设我们有 p 个变量，对 n 个观测值（即个体、病例、样本）进行测量，变量可分为 J 个块。在本章接下来的内容中，我们将使用以下符号：</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714965259922-102aaccb-875b-45bc-b879-646acb4e940c.png#averageHue=%23fbfaf8&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=130&amp;id=DLLNy&amp;originHeight=163&amp;originWidth=854&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=30521&amp;status=done&amp;style=none&amp;taskId=uc6118513-3aa9-42fd-a6e6-6a2d4c096f8&amp;title=&amp;width=683.2" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714965285315-71615b6c-c2ea-4154-b860-0ad695b4a1d3.png#averageHue=%23fbf9f6&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=107&amp;id=u63202c8f&amp;originHeight=134&amp;originWidth=854&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=29144&amp;status=done&amp;style=none&amp;taskId=ud96cf1d1-972f-4389-bb2f-dcabd3a4834&amp;title=&amp;width=683.2" alt="image.png" loading="lazy"><br>
+<a name="uVmfh"></a></p>
+<h4 id="331-结构模型或内部模型the-structural-model">3.3.1 结构模型或内部模型(The Structural Model)</h4>
+<p>首先，让我们来谈谈 PLS 路径模型中结构部分的规格。关于内部关系，有三点需要考虑：<br />1) <strong>线性关系(Linear Relationships)</strong> 内部模型的第一个方面是，我们将所有的结构关系都视为线性关系。我们可以将结构关系用数学符号表示:<br /><img src="https://cdn.nlark.com/yuque/__latex/e7e860fa3a7ed8fb0ee5547ae0bcdfd0.svg#card=math&amp;code=LV_j%3D%5Cbeta_0%2B%5Csum_%7Bi%5Cto%20j%7D%5Cbeta_%7Bji%7DLV_i%2Berror_j&amp;id=EuqRV" alt="" loading="lazy"><br />LVi 的下标 i 指的是可以预测 LVj 的所有潜变量。系数 βji 是路径系数(<strong>the path coeﬃcients</strong> )，表示响应 LVj 与预测变量 LVi 之间关系的 &quot;强度和方向&quot;。β0 只是截距项，error j 代表残差。<br />2) <strong>递归模型(Recursive Models)</strong> 需要注意的第二点是，方程系统必须是递归系统。这意味着内部模型的箭头所形成的路径不能形成循环。<br />3) <strong>回归规格化(Regression Speciﬁcation)</strong> 关于内部关系的第三个方面是所谓的预测器规格化，这只是表达线性回归思想的一个花哨术语。这也是我更愿意称之为回归规格的原因。这种规范背后的理念是，从标准回归的角度来构思线性关系：<br /><img src="https://cdn.nlark.com/yuque/__latex/483e1b89bd8c4582994aa608acd6e716.svg#card=math&amp;code=E%28LV_j%7CLV_i%29%3D%5Cbeta_%7B0i%7D%2B%5Csum_%7Bi%5Cto%20j%7D%5Cbeta_%7Bji%7DLV_i&amp;id=sYfja" alt="" loading="lazy"><br />从回归的意义上讲，我们在上一个等式中所说的是，我们希望尽可能了解由预测因子 LVi 决定的响应 LVj 的条件期望值。唯一的额外假设是:<br /><img src="https://cdn.nlark.com/yuque/__latex/bbce8fa38f4b43ae0af2351ef10a0ac2.svg#card=math&amp;code=cov%28LV_j%2Cerror_j%29%3D0&amp;id=y6zRT" alt="" loading="lazy"><br />这意味着潜变量 LVj 与error j 不相关。请注意，我们对变量和误差项的分布不做任何假设。我们只是要求变量存在一阶和二阶矩。<br>
+<a name="p4WkW"></a></p>
+<h4 id="332-测量模型或外部模型the-measurement-model">3.3.2 测量模型或外部模型(The Measurement Model)</h4>
+<p>现在该谈谈测量模型或外部模型了。请记住，这是模型中与潜变量及其显变量块之间的关系有关的部分。关于外部模型，你应该记住的相关方面是有两种主要的测量选项：<strong>再现块(reﬂective blocks)<strong>和</strong>形成块(formative blocks)</strong>。<br />1a) **反映型(reflective blocks) **最常见的测量方式是反映模式。在这种情况下，潜变量被认为是显变量的原因。这就是为什么它被称为 &quot;反演&quot;，因为显变量正在 &quot;反演 &quot;潜变量。如果我们有一个用三个指标测量的潜变量 LV1，我们可以用下一个路径图来表示它们（注意箭头的方向）：<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714967567722-0534d3d9-7dac-4fb6-8e73-bd191ef06a67.png#averageHue=%23f9f9f8&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=246&amp;id=ueaaefa13&amp;originHeight=308&amp;originWidth=580&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=15061&amp;status=done&amp;style=none&amp;taskId=ucda82821-95d5-4845-936c-ac7b8ae72c5&amp;title=&amp;width=464" alt="image.png" loading="lazy"><br />1b)<strong>形成型(formative blocks)</strong>。在这种情况下，显变量被认为是潜变量的原因。这就是为什么它被称为形成式，因为显变量正在 &quot;形成 &quot;潜变量。如果我们有一个用三个指标测量的潜变量 LV2，我们可以用下一个路径图来表示它们（注意箭头的方向）：<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714968227714-1eedfa88-aa2d-4f0e-9cef-b4f1f6c1f368.png#averageHue=%23f9f9f8&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=247&amp;id=uab190812&amp;originHeight=309&amp;originWidth=559&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14732&amp;status=done&amp;style=none&amp;taskId=u2acf062e-78e9-4b15-8274-78591c84137&amp;title=&amp;width=447.2" alt="image.png" loading="lazy"><br />2）<strong>线性关系</strong> 与内部模型一样，外部模型的关系也被认为是线性的。用数学符号表示如下:<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714967567722-0534d3d9-7dac-4fb6-8e73-bd191ef06a67.png#averageHue=%23f9f9f8&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=246&amp;id=qI0Yh&amp;originHeight=308&amp;originWidth=580&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=15061&amp;status=done&amp;style=none&amp;taskId=ucda82821-95d5-4845-936c-ac7b8ae72c5&amp;title=&amp;width=464" alt="image.png" loading="lazy"><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714968227714-1eedfa88-aa2d-4f0e-9cef-b4f1f6c1f368.png#averageHue=%23f9f9f8&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=247&amp;id=aIzPw&amp;originHeight=309&amp;originWidth=559&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=14732&amp;status=done&amp;style=none&amp;taskId=u2acf062e-78e9-4b15-8274-78591c84137&amp;title=&amp;width=447.2" alt="image.png" loading="lazy"><br /><img src="https://cdn.nlark.com/yuque/__latex/1f6a0d8fb0ab7c502903ce4c5923f970.svg#card=math&amp;code=X_%7Bjk%7D%3D%5Clambda_%7B0jk%7D%2B%5Clambda_%7Bjk%7DLV_%7Bj%7D%2Berror_%7Bjk%7D%5Cquad%5Ctext%7BReflective%7D&amp;id=G3ycv" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.nlark.com/yuque/__latex/9f2cd122e07a1f93da83fc272c9a0c0a.svg#card=math&amp;code=LV_j%3D%5Clambda_%7B0j%7D%2B%5Clambda_%7Bjk%7DX_%7Bjk%7D%2Berror_j%5Cquad%5Ctext%7BFormative%7D&amp;id=AJnC7" alt="" loading="lazy"></figure>
+<p>系数 λjk 称为<strong>载荷(loadings)</strong>；λ0 只是<strong>截距项(the intercept term)</strong>，error表示<strong>残差(the residuals)</strong>。在这里，我滥用了一些符号，但这是为了保持简单。<br />3) <strong>回归规格化(Regression Speciﬁcation)</strong>  此外，我们还有预测指标规格化或回归规格化的概念：从标准回归的角度来构思线性关系：<br /><img src="https://cdn.nlark.com/yuque/__latex/f3972ed0a96340146f217a5f285188f2.svg#card=math&amp;code=E%28X_%7Bjk%7D%7CLV_%7Bj%7D%29%3D%5Clambda_%7B0jk%7D%2B%5Clambda_%7Bjk%7DLV_%7Bj%7D%5Ctext%7BReflective%7D%5C%5CE%28LV_%7Bj%7D%7CX_%7Bjk%7D%29%3D%5Clambda_%7B0j%7D%2B%5Clambda_%7Bjk%7DX_%7Bjk%7D%5Ctext%7BFormative%7D&amp;id=AqEqB" alt="" loading="lazy"><br />我们在前面的方程中所说的回归意义上的意思是，我们希望尽可能了解响应变量（显变量或潜变量）在预测变量方面的条件预期值。<br>
+<a name="pfFed"></a></p>
+<h4 id="333-权重关系the-weight-relations">3.3.3 权重关系(The Weight Relations)</h4>
+<p>最后，我们需要提到的是 PLS 路径模型的规格：**权重关系。**到目前为止，我们已经讨论了赋予内外模型形式的理论规范。但是，还有一个部分是悬而未决的。你知道我们指的是什么吗？潜变量 所有的线性方程和考虑的假设都取决于潜变量 LVj，但问题是它们是虚拟实体。我不知道你是否还记得我在定义符号时说过的话，但我已经说得很清楚了： 请记住，LVj 只是一种抽象的表示法。<br />也许我说得不够清楚，但我的意思是潜变量 LVjs 就像是幽灵变量。除非我们有办法将抽象的潜变量具体化，否则之前所有的规范都毫无价值。不过不用担心。有了权重关系，我们就可以弥合虚拟 LV 与实体 LV 之间的差距。在 PLS-PM 中，潜变量是作为显变量的线性组合来估计的。此外，估计的 LVj 称为得分，我们将其记为 Yj：<br /><img src="https://cdn.nlark.com/yuque/__latex/6a2f9803487822d1ce379159a26274ae.svg#card=math&amp;code=%5Cwidehat%7BLV_j%7D%3DY_j%3D%5Csum_kw_%7Bjk%7DX_%7Bjk%7D&amp;id=ckS9M" alt="" loading="lazy"><br />事实上，这正是 PLS-PM 被称为基于成分的方法的根本原因，因为潜变量是以其指标的加权和来计算的，这与主成分分析的方法类似。<br />重要的是，不要混淆抽象 LVj 和得分 Yj 的作用。是的，它们指的是同一个结构，但前者是出于理论原因，后者则是出于实际目的。我知道这可能会把你弄糊涂，但不用担心。一个潜变量是以反应式还是形成式的方式来测量的并不重要；一个潜变量是作为其指标块的线性组合来计算的。<br>
+<a name="En46L"></a></p>
+<h3 id="34-operative-model-how-to-get-what-we-want">3.4 Operative Model: How to get what we want</h3>
+<p>到目前为止，我们一直在讨论任何 PLS 路径模型背后的规范。请记住，这些规范只是通过 PLS-PM 玻璃观察世界的理想化表述。总之，我们只讨论了 &quot;我们想要什么&quot;；现在，我们需要讨论操作方面的问题，基本上就是：&quot;如何获得我们想要的东西&quot;： &quot;如何得到我们想要的&quot;。<br />PLS 路径建模的基本思想是将每个区块的显变量结合起来，形成一个估计（代理）潜变量。计算出潜变量得分后，我们就可以开始估算路径系数和载荷。这就是我们要遵循的总体路线。我们需要确定计算方式（分数、路径系数和载荷）。<br /><strong>PLS-PM算法概述</strong><br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1714962182381-552a675a-c854-4e69-a329-6dea3a249c11.png#averageHue=%23faf8f6&amp;clientId=u28058c66-c68e-4&amp;from=paste&amp;height=125&amp;id=u035ed0bb&amp;originHeight=156&amp;originWidth=812&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=25697&amp;status=done&amp;style=none&amp;taskId=u022d8a6d-ccf6-4eb3-9f09-5792832fc94&amp;title=&amp;width=649.6" alt="image.png" loading="lazy"><br />PLS路径建模遵循顺序过程，可分为三个主要阶段：<br /><strong>第 1 阶段：获取权重以计算潜在变量分数</strong><br /><strong>第 2 阶段：估计路径系数（内部模型）</strong><br /><strong>第 3 阶段：获取载荷（外部模型）</strong><br />在所有阶段中，<strong>第一个阶段是PLS-PM方法的关键部分。顺便说一句，这也是棘手的部分。这个阶段是一个迭代过程，最终目标是获得著名的权重关系的权重</strong>。这是PLS-PM方法的核心，它使我们能够实现幽灵般的抽象潜在变量。一旦我们通过了第一阶段，接下来的两个阶段几乎是小菜一碟。路径系数的估计只是运行与模型中的结构方程一样多的最小二乘回归的问题。反过来，获取载荷只是计算简单相关性的问题。<br>
+<a name="RGh8Y"></a></p>
+<h1 id="chapter-4-pls-pm结果解读interpreting-pls-pm-results">Chapter 4 PLS-PM结果解读(Interpreting PLS-PM Results)</h1>
+<p>**定义 PLS 路径模型并应用函数 plspm（） 只是 PLS 路径建模分析的第一步。接下来要做的事更为重要：检查获得的结果并评估模型的质量。**在本章中，我们将回顾一些应用PLS-PM的一般准则，我们将讨论如何解释输出和诊断结果的花里胡哨。</p>
+<blockquote>
+<p>考虑显变量指标过多，可以剔除的四种情况：</p>
+<ul>
+<li>多重共线性：利用VIF()函数，如果VIF值高于3，可能表明存在共线性问题，这时可以考虑删除一些指标</li>
+<li>如果一个显变量的权重在统计上不显著，且载荷（即对潜在变量的贡献程度）很低，可以考虑剔除；</li>
+<li>如果移除某个显变量后，模型的拟合指标（如RMSEA、CFI等）得到改善，这可能支持剔除该变量。</li>
+<li>通过冗余分析/PCA/因子分析，剔除一些指标</li>
+</ul>
+</blockquote>
+<p><a name="noIhR"></a></p>
+<h3 id="44-测量模型或外部模型评估形成型">4.4 测量模型或外部模型评估：形成型</h3>
+<p>与反映型性指标不同，形成型指标被视为导致（即形成）一个潜变量。事实上，从数学角度来看，所有指标块都可以被视为反应型指标。不过，也可能有理论或概念上的原因将某个指标块视为形成型指标。形成型指标不一定衡量相同的基本结构。在这种情况下，一个结构体所经历的任何变化并不意味着其所有指标都会发生变化；<strong>也就是说，形成型指标不应该是相关的</strong>。因此，<strong>形成型测量不能以与反映型测量相同的方式进行评估；在形成性测量中，所有基于载荷的评估标准都被摒弃。</strong><br />我们比较每个指标的外部权重，以确定哪些指标对建构的贡献最大。<strong>必须注意避免将权重绝对值相对较小的指标误认为贡献不大。如果我们考虑剔除某些指标，则应根据多重共线性来进行：如果出现高度的多重共线性，则建议剔除。这意味着专家们（基于理论）对潜变量是如何形成的达成了强烈共识</strong>。<br>
+<a name="paikp"></a></p>
+<h3 id="45结构模型或内部模型评估">4.5结构模型或内部模型评估</h3>
+<p>评估完测量模型的质量后，下一阶段就是评估结构部分。为了检查结构方程中每个回归的结果，我们需要显示 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>n</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">模</mi><mi mathvariant="normal">型</mi><mi mathvariant="normal">中</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">结</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">。</mi><mi mathvariant="normal">这</mi><mi mathvariant="normal">些</mi><mi mathvariant="normal">结</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">将</mi><mi mathvariant="normal">以</mi><mi mathvariant="normal">列</mi><mi mathvariant="normal">表</mi><mi mathvariant="normal">形</mi><mi mathvariant="normal">式</mi><mi mathvariant="normal">显</mi><mi mathvariant="normal">示</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">与</mi><mi mathvariant="normal">函</mi><mi mathvariant="normal">数</mi><mi>l</mi><mi>m</mi><mo>(</mo><mo>)</mo><mi mathvariant="normal">（</mi><mi mathvariant="normal">即</mi><mi mathvariant="normal">线</mi><mi mathvariant="normal">性</mi><mi mathvariant="normal">模</mi><mi mathvariant="normal">型</mi><mi mathvariant="normal">分</mi><mi mathvariant="normal">析</mi><mi mathvariant="normal">）</mi><mi mathvariant="normal">提</mi><mi mathvariant="normal">供</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">结</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">相</mi><mi mathvariant="normal">同</mi><mi mathvariant="normal">。</mi><mi mathvariant="normal">由</mi><mi mathvariant="normal">于</mi><mi mathvariant="normal">我</mi><mi mathvariant="normal">们</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">示</mi><mi mathvariant="normal">例</mi><mi mathvariant="normal">只</mi><mi mathvariant="normal">有</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">回</mi><mi mathvariant="normal">归</mi><mi mathvariant="normal">结</mi><mi mathvariant="normal">果</mi><mi mathvariant="normal">，</mi><mi mathvariant="normal">因</mi><mi mathvariant="normal">此</mi><mi mathvariant="normal">只</mi><mi mathvariant="normal">有</mi><mi mathvariant="normal">一</mi><mi mathvariant="normal">个</mi><mi mathvariant="normal">元</mi><mi mathvariant="normal">素</mi><mo>(</mo></mrow><annotation encoding="application/x-tex">inner 模型中的结果。这些结果将以列表形式显示，与函数 lm()（即线性模型分析）提供的结果相同。由于我们的示例只有一个回归结果，因此只有一个元素 (</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord cjk_fallback">模</span><span class="mord cjk_fallback">型</span><span class="mord cjk_fallback">中</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">结</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">这</span><span class="mord cjk_fallback">些</span><span class="mord cjk_fallback">结</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">将</span><span class="mord cjk_fallback">以</span><span class="mord cjk_fallback">列</span><span class="mord cjk_fallback">表</span><span class="mord cjk_fallback">形</span><span class="mord cjk_fallback">式</span><span class="mord cjk_fallback">显</span><span class="mord cjk_fallback">示</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">与</span><span class="mord cjk_fallback">函</span><span class="mord cjk_fallback">数</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">m</span><span class="mopen">(</span><span class="mclose">)</span><span class="mord cjk_fallback">（</span><span class="mord cjk_fallback">即</span><span class="mord cjk_fallback">线</span><span class="mord cjk_fallback">性</span><span class="mord cjk_fallback">模</span><span class="mord cjk_fallback">型</span><span class="mord cjk_fallback">分</span><span class="mord cjk_fallback">析</span><span class="mord cjk_fallback">）</span><span class="mord cjk_fallback">提</span><span class="mord cjk_fallback">供</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">结</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">相</span><span class="mord cjk_fallback">同</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">由</span><span class="mord cjk_fallback">于</span><span class="mord cjk_fallback">我</span><span class="mord cjk_fallback">们</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">示</span><span class="mord cjk_fallback">例</span><span class="mord cjk_fallback">只</span><span class="mord cjk_fallback">有</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">回</span><span class="mord cjk_fallback">归</span><span class="mord cjk_fallback">结</span><span class="mord cjk_fallback">果</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">因</span><span class="mord cjk_fallback">此</span><span class="mord cjk_fallback">只</span><span class="mord cjk_fallback">有</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">个</span><span class="mord cjk_fallback">元</span><span class="mord cjk_fallback">素</span><span class="mopen">(</span></span></span></span>Success)<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1715004461680-628f6f23-30d6-4a72-b684-9c3f02378406.png#averageHue=%23f3f2f1&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=162&amp;id=u858abbba&amp;originHeight=202&amp;originWidth=908&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=45798&amp;status=done&amp;style=none&amp;taskId=ud4b0d037-38de-4502-b61d-8faa46b5910&amp;title=&amp;width=726.4" alt="image.png" loading="lazy"><br />除了回归方程的结果外，还通过研究三个指数或质量指标来评估结构模型的质量：</p>
+<ul>
+<li><strong>the R2 determination coeﬃcients</strong></li>
+<li><strong>the redundancy index</strong></li>
+<li><strong>the Goodness-of-Fit (GoF)</strong><br>
+<a name="uLub0"></a></li>
+</ul>
+<h4 id="451-the-r2-determination-coefficients">4.5.1 the R2 determination coeﬃcients</h4>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1715004695306-c1b4a059-bce7-4376-8462-f48894bb6d3a.png#averageHue=%23f3f2f1&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=279&amp;id=ufbb6ccba&amp;originHeight=349&amp;originWidth=793&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=55477&amp;status=done&amp;style=none&amp;taskId=u5f9f6ab4-b802-419f-b57c-e03b495978c&amp;title=&amp;width=634.4" alt="image.png" loading="lazy"><br />对于结构模型中的每个回归，我们都有一个 R2，其解释与任何多元回归分析类似。<strong>R****2 ****表示独立潜变量(Exogenous Latent Variables)对内生潜变量(Endogenous Latent Variables)方差的解释量。</strong><br />尽管我们必须牢记这是一个非常简单的模型，但内部模型似乎很合理。我们的 R2 = 0.85，根据 PLS-PM 标准，这可以被视为一个出色的 R2。事实上，R 方值可分为三类（请勿将其视为绝对真理）：<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1715005502636-af9b422e-deb1-4f5e-b1af-02aa3c1e991f.png#averageHue=%23fbf9f7&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=105&amp;id=u49697985&amp;originHeight=131&amp;originWidth=684&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=29316&amp;status=done&amp;style=none&amp;taskId=u903d0209-7d23-47a9-b4ba-a1c8d70e1e8&amp;title=&amp;width=547.2" alt="image.png" loading="lazy"><br>
+<a name="CfXmn"></a></p>
+<h4 id="452-redundancy">4.5.2 Redundancy</h4>
+<p>冗余度衡量的是内生组块中指标方差的百分比，该百分比是由与内生 LV 相关的独立潜变量预测得出的。冗余度的另一个定义是内生构造中由其独立潜变量解释的方差量。换句话说，它反映了一组独立潜变量解释因变量变化的能力。与第 k 个区块相关的第 j 个显式变量的冗余指数为：<br /><img src="https://cdn.nlark.com/yuque/__latex/010ecd722d075dcdf2693ab52ac9db55.svg#card=math&amp;code=Rd%28LV_k%2Cmv_%7Bjk%7D%29%3Dloading_%7Bjk%7D%5E2R_k%5E2&amp;id=bqa5x" alt="" loading="lazy"><br />高冗余度意味着高预测能力。特别是，研究人员可能会关注独立潜变量对指标内生结构值的预测能力。与共性指数类似，我们可以计算平均冗余度，即内生区块冗余度指数的平均值。<br /><img src="https://cdn.nlark.com/yuque/0/2024/png/40661871/1715007299780-96e47af5-a67b-464f-b327-31f23c1a94e0.png#averageHue=%23f2f1ef&amp;clientId=u0e8d36aa-aed6-4&amp;from=paste&amp;height=144&amp;id=ufc105689&amp;originHeight=180&amp;originWidth=902&amp;originalType=binary&amp;ratio=1.25&amp;rotation=0&amp;showTitle=false&amp;size=46803&amp;status=done&amp;style=none&amp;taskId=ub941c37c-8a9c-4877-9e3f-2ab0ab3747f&amp;title=&amp;width=721.6" alt="image.png" loading="lazy"><br />对于每个潜变量，我们都有一些描述性信息：类型（外生性或内生性）、测量（反应性或形成性）和指标数。<strong>列 R 平方仅适用于内生变量</strong>。平均共通性 Av.Commu 表明有多少区块变异可由潜在变量重现。<br />除了平均共通性，我们还有平均冗余度 Av.Redun，它与 R2 一样只适用于内生构造。Av.Redun 表示内生区块中由与内生 LV 相关的独立 LV 预测的方差百分比。冗余度高意味着预测能力强。假设我们有兴趣检查独立 LV 对内生指标值的预测能力。在我们的示例中，&quot;成功 &quot;的平均冗余度表示攻击和防御可预测 &quot;成功 &quot;指标 68% 的变化。<br>
+<a name="U3jML"></a></p>
+<h4 id="453-gof">4.5.3 GoF</h4>
+<p>一个值得注意的问题是，在 PLS 框架内没有一个单一的标准来衡量模型的整体质量，因此我们无法对 ﬁt 进行推理统计检验。作为替代方法，我们可以采用非参数检验来评估结构模型。<br />GoF 指数是一种伪拟合度衡量方法，它同时考虑了测量模型和结构模型的模型质量。GoF 是根据平均共通性和平均 R2 值的几何平均数计算得出的。由于该指标考虑了共通性，因此更适用于反应性指标，而非形成性指标。然而您也可以在存在形成性区块的情况下使用 GoF 指数，在这种情况下，平均 R2 将更加重要。<br />GoF 可以作为一个全局标准，帮助我们评估模型在内部和外部模型中的性能。基本上，GoF 评估的是模型的整体预测性能。GoF 指数的主要缺点是没有一个阈值可以让我们确定其统计意义。不幸的是，对于什么样的数值才算得上是一个好的 GoF 值，也没有任何指导。您可以将 GoF 视为整个模型的平均预测指数。虽然这并不完全正确，但它有助于理解 GoF 值。从这个角度来看，0.78 的 GoF 值可以理解为模型的预测能力达到了 78%。经验法则是：越高越好。PLS-PM 界可接受的 &quot;好 &quot;值是 GoF &gt;0.7</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://jue12.github.io/tag/_rWzXZSzj/" class="tag">
+                    SEM
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://jue12.github.io/post/qiime20-zhuan-zhu-yu-wei-sheng-wu-qun-luo-de-fen-xi/">
+                  <h3 class="post-title">
+                    QIIME2.0-专注于微生物群落的分析
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
